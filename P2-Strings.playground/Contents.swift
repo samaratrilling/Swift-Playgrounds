@@ -19,11 +19,11 @@ let salutation = "Have a nice " + season + "!"
 
 //: Also, if you want to join an array of strings together, you can use the `join` method of String to conjoin them with a delimiter of your choosing:
 
-let beetles = " and ".join(["John", "Paul", "Ringo", "George"])
+let beatles = " and ".join(["John", "Paul", "Ringo", "George"])
 
 //: You can go in the opposite direction, too, with a method borrowed from NSString:
 
-let brokenUpBeetles = beetles.componentsSeparatedByString(" and ")
+let brokenUpBeatles = beatles.componentsSeparatedByString(" and ")
 
 //: ### Mutating Strings
 //: 
@@ -65,6 +65,8 @@ let position = 2
 //: This is because characters in Swift Strings actually represent conceptual units called **extended grapheme clusters** that don't match one-to-one with the bytes used to encode the string. You don't need to worry about what a grapheme cluster is; what matters is that you can't use a plain old integer index.
 //:
 //: Instead, you need to use the `advance` function, which uses special knowledge about how Strings store characters to calculate a suitable index:
+//: Don't worry if `index` ends up being something unexpected. As long as we get the right `realPig` at the end, everything is good. It's all part of `advance`'s magic.
+//: BONUS: Try changing `barnResidents` to a normal four-character string without emojis. Does `index` have a more expected value now?
 
 let index = advance(barnResidents.startIndex, position)
 let realPig = barnResidents[index]
